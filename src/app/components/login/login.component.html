@@ -1,0 +1,33 @@
+<div class="contenedorformulario">
+    <form  #form="ngForm" (ngSubmit)="validarForm(form)">
+
+        <div class="titulo">
+            <h2>LOGIN</h2>
+        </div>
+
+        <div class="inputs">
+            <span class="text-danger" *ngIf="form.submitted && form.controls['email'].errors"> <small> <em>El correo es
+                        obligatorio</em></small> </span>
+            <div class="form-group">
+                <input [(ngModel)]="recordarUsuario" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                    placeholder="Correo Electronico" required email [(ngModel)]="usuario.email">
+            </div>
+
+            <span class="text-danger" *ngIf="form.submitted && form.controls['password'].errors"> <small> <em>La
+                        contraseña es obligatoria</em> </small> </span>
+            <div class="form-group ">
+                <input [(ngModel)]="usuario.password" name="password" type="password" class="form-control" id="password"
+                    placeholder="Contraseña" required minlength="6">
+            </div>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recordar Usuario</label>
+            <a [routerLink]="[ '/registro']"> ¿Crear Cuenta?</a>
+
+        </div>
+        <div class="boton"><button type="submit" class="btn btn-primary">Entrar</button></div>
+
+    </form>
+</div>
